@@ -49,7 +49,7 @@ function SemiRandomPassword {
     $Fourth = Get-Random -InputObject $Lowers
 
     # Combine the base word with the random characters and return the password
-    return "$Base$First$Second$Third$Fourth" 
+    return ($Base + $First + $Second +  $Third + $Fourth)
 }
 
 function New-MgUserFromCsvWithRandomPassword {
