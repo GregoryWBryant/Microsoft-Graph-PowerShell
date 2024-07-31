@@ -68,7 +68,7 @@ foreach ($User in $Users) {
             $skuPartNumberToAdd = $SkuIds[$LicenseToAdd.Trim()]
             if ($skuPartNumberToAdd) {
                 $addLicense = ($AvailableSkus | Where-Object { $_.SkuPartNumber -eq $skuPartNumberToAdd }).SkuId
-                Set-MgUserLicense -UserId $User.Email -AddLicenses @{ SkuId = $addLicense } -RemoveLicenses @{}
+                Set-MgUserLicense -UserId $User.Email -AddLicenses @{ SkuId = $addLicense } -RemoveLicenses @()
             } else {
                 Write-Warning "License to add not found: $LicenseToAdd"
             }
